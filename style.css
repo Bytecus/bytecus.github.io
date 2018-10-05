@@ -9,3 +9,57 @@ body {
 	color: #999999;
 	font-family: "Share Tech Mono", monospace;
 }
+
+.blinking-cursor {
+	color: #2E3D48;
+	-webkit-animation: 1s blink step-end infinite;
+	-moz-animation: 1s blink step-end infinite;
+	-ms-animation: 1s blink step-end infinite;
+	-o-animation: 1s blink step-end infinite;
+	animation: 1s blink step-end infinite;
+  }
+  
+  @keyframes blink {
+	from, to {
+	  color: transparent;
+	}
+	50% {
+	  color: #999999;
+	}
+  }
+  
+  @-moz-keyframes blink {
+	from, to {
+	  color: transparent;
+	}
+	50% {
+	  color: #999999;
+	}
+  }
+  
+  @-webkit-keyframes blink {
+	from, to {
+	  color: transparent;
+	}
+	50% {
+	  color: #999999;
+	}
+  }
+  
+  @-ms-keyframes blink {
+	from, to {
+	  color: transparent;
+	}
+	50% {
+	  color: #999999;
+	}
+  }
+  
+  @-o-keyframes blink {
+	from, to {
+	  color: transparent;
+	}
+	50% {
+	  color: #999999;
+	}
+  }

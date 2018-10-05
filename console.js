@@ -27,10 +27,10 @@ function run(input) {
 			break;
 		case "credits":
 			print("Based off of the work created by Alexander Hill and Nicholas McDaniel");
-			print("https://github.com/NicksWorld");
+			print("<a href=https://github.com/NicksWorld>https://github.com/NicksWorld</a>");
 			break;
 		case "help":
-			print("Commands:<br>credits<br>socials - goto twitter page<br>code - Crack the code (Using js lib)");
+			print("Commands:<br>code - Hack the code (Using js lib)<br>socials - goto twitter page<br>credits - ");
 			break;
 		default:
 			print("Invalid command. Type help for a list of commands");
@@ -53,7 +53,7 @@ $(document).ready(function() {
 				case 13:
 					document.console.processing = true;
 					run(document.console.input);
-					print("guest@bytecus.io:/$ ");
+					print("guest@bytecus.io:/$ <span class=blinking-cursor>|</span>");
 					document.console.processing = false;
 					document.console.input = "";
 					break;
@@ -97,7 +97,7 @@ $(document).ready(function() {
 				default:
 					document.console.input += event.key;
 			}
-			editline("guest@bytecus.io:/$ " + document.console.input);
+			editline("guest@bytecus.io:/$ <span class=blinking-cursor>|</span>" + document.console.input);
 		} else {
 			if(document.console.debug) {
 				console.log(event.keyCode + " ignored");
@@ -105,5 +105,5 @@ $(document).ready(function() {
 		}
 	});
 	print("Logged in as guest@bytecus");
-	print("guest@bytecus.io:/$ ");
+	print("guest@bytecus.io:/$ <span class=blinking-cursor>|</span>");
 });
