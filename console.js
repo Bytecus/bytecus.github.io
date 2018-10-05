@@ -16,12 +16,8 @@ function print(str) {
 function run(input) {
 	var args = input.split(" ");
 	switch(args[0]) {
-		case "credits":
-			print("Webconsole created by Alexander Hill and Nicholas McDaniel");
-			print("https://github.com/NicksWorld");
-			break;
 		case "socials":
-			window.location = "https://twitter.com/bytecus";
+			print("<a href=https://twitter.com/bytecus>Twitter</a>");
 			break;
 		case "code":
 			print("press keys on your keyboard in this order: 1, 2, 3");
@@ -29,11 +25,15 @@ function run(input) {
 				alert("Code cracked!");
 			});
 			break;
+		case "credits":
+			print("Based off of the work created by Alexander Hill and Nicholas McDaniel");
+			print("https://github.com/NicksWorld");
+			break;
 		case "help":
 			print("Commands:<br>credits<br>socials - goto twitter page<br>code - Crack the code (Using js lib)");
 			break;
 		default:
-			print("Invalid command. Use help for a list of commands");
+			print("Invalid command. Type help for a list of commands");
 	}
 }
 
