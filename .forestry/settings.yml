@@ -2,7 +2,7 @@
 new_page_extension: html
 auto_deploy: true
 admin_path: iddqd
-webhook_url: 
+webhook_url: https://app.forestry.io/git/github/hook
 sections:
 - type: jekyll-posts
   label: Posts
