@@ -7,17 +7,28 @@ document.console.debug = false;
 function editline(str, l = document.console.line) {
 	$("#" + l).html(str);
 }
-
+//.replace(/<span class=blinking-cursor>\|<\/span>/g,'')
 function print(str) {
 	document.console.line++;
-	$("body").append("<div class=\"line\" id=\"" + document.console.line + "\">" + str + "</div><br>");
+	var htmlcode = "<div class=\"line\" id=\"" + document.console.line + "\">" + str + "</div><br>"
+	$("body").append(htmlcode);
+}
+
+function cls(str) {
+	location.reload();
+	document.console.line;
 }
 
 function run(input) {
 	var args = input.split(" ");
 	switch(args[0]) {
 		case "socials":
-			print("<a href=https://twitter.com/bytecus>Twitter</a>");
+		case "links":
+			print("<a href=https://github.com/Bytecus target=_blank>https://github.com/Bytecus</a>");
+			print("<a href=https://twitter.com/Bytecus target=_blank>https://twitter.com/Bytecus</a>");
+			print("<a href=https://facebook.com/Bytecus target=_blank>https://facebook.com/Bytecus</a>");
+			print("<a href=https://twitter.com/bytecus target=_blank>https://twitter.com/bytecus</a>");
+			print("<a href=https://twitter.com/bytecus target=_blank>https://twitter.com/bytecus</a>");
 			break;
 		case "code":
 			print("press keys on your keyboard in this order: 1, 2, 3");
@@ -27,7 +38,11 @@ function run(input) {
 			break;
 		case "credits":
 			print("Based off of the work created by Alexander Hill and Nicholas McDaniel");
-			print("<a href=https://github.com/NicksWorld>https://github.com/NicksWorld</a>");
+			print("<a href=https://github.com/NicksWorld target=_blank>https://github.com/NicksWorld</a>");
+			break;
+		case "cls":
+		case "reload":
+			cls("")
 			break;
 		case "help":
 			print("Commands:<br>code - Hack the code (Using js lib)<br>socials - goto twitter page<br>credits - ");
@@ -53,7 +68,7 @@ $(document).ready(function() {
 				case 13:
 					document.console.processing = true;
 					run(document.console.input);
-					print("guest@bytecus.io:/$ <span class=blinking-cursor>|</span>");
+					print("guest@bytecus.io:/$ ");
 					document.console.processing = false;
 					document.console.input = "";
 					break;
@@ -94,10 +109,14 @@ $(document).ready(function() {
 				case 12:
 				case 27:
 					break;
-				default:
+				default: 
 					document.console.input += event.key;
 			}
-			editline("guest@bytecus.io:/$ <span class=blinking-cursor>|</span>" + document.console.input);
+			if (event.keyCode === 13) {
+				editline("guest@bytecus.io:/$ " + document.console.input + "<span class=blinking-cursor>|</span>");
+			} else {
+				editline("guest@bytecus.io:/$ " + document.console.input + "<span class=blinking-cursor>|</span>");
+			}
 		} else {
 			if(document.console.debug) {
 				console.log(event.keyCode + " ignored");
